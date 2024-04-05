@@ -13,17 +13,13 @@ result = 0
 
 
 def goLeft():
-    global result
     target = dq.popleft()
     dq.append(target)
-    result += 1
 
 
 def goRight():
-    global result
     target = dq.pop()
     dq.appendleft(target)
-    result += 1
 
 
 for num in findNumber_list:
@@ -35,8 +31,10 @@ for num in findNumber_list:
     if move <= int(len(dq) / 2):
         for i in range(move):
             goLeft()
+            result += 1
     else:
         for i in range(len(dq) - move):
             goRight()
+            result += 1
     dq.popleft()
 print(result)
